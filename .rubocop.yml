@@ -1,0 +1,14 @@
+AllCops:
+  Exclude:
+    - metadata.rb
+    - Gemfile
+    - Rakefile
+    - Thorfile
+    - Vagrantfile
+    - 'vendor/**/*'
+
+Metrics/LineLength:
+  Max: 320
+
+Style/SingleSpaceBeforeFirstArg:
+  Enabled: false
