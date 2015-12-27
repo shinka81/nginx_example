@@ -31,6 +31,6 @@ describe file('/etc/nginx/conf.d/default.conf') do
   its(:content) { should match(/index example.html/) }
 end
 
-describe command('curl localhost:8000') do
+describe command('sleep 10 && curl localhost:8000') do
   its(:stdout) { should match(/Basic webpage for PSE Exercise/) }
 end

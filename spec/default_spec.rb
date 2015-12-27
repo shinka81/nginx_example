@@ -28,7 +28,7 @@ describe 'nginx_example' do
     expect { chef_run.converge(described_recipe) }.to raise_error(RuntimeError)
   end
 
-  it 'Renders nginx config' do
+  it 'Renders nginx config and notifies service[nginx] to reload if new content.' do
     expect(chef_run).to render_file('/etc/nginx/conf.d/default.conf')
       .with_content(/index example.html/)
     expect(chef_run.template('/etc/nginx/conf.d/default.conf')).to notify('service[nginx]').to(:reload).delayed
