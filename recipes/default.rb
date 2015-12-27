@@ -17,7 +17,7 @@ package 'nginx'
 # Land html pages.
 node['nginx_example']['remote_files']['www'].each do |file, value|
   %w(uri file_name path).each do |key|
-    fail "#{node['nginx_example']['remote_files']['www'][file]} must contain a uri, name, and path" unless value.key?(key)
+    fail "#{node['nginx_example']['remote_files']['www'][file]} must contain a uri, file_name, and path" unless value.key?(key)
   end
   remote_file "/usr/share/nginx/html/#{value['file_name']}" do
     source value['uri']
